@@ -22,3 +22,5 @@ const theme = {
       textDarkGray: '#5D5D62', // e.g. '수분을 기록해보세요!', '총 수분량'
     }
 }
+
+export default theme;
