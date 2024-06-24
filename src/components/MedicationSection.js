@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import theme from '../theme';
+
+const { width, height } = Dimensions.get('window');
 
 const MedicationSection = ({ isMedication, toggleMedication }) => {
   return (
@@ -38,33 +40,33 @@ const MedicationSection = ({ isMedication, toggleMedication }) => {
 const styles = StyleSheet.create({
   section: {
     backgroundColor: theme.colors.White,
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
+    borderRadius: width * 0.02,
+    padding: width * 0.04,
+    marginBottom: height * 0.02,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: width * 0.045,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: height * 0.01,
     color: theme.colors.Black,
   },
   sectionSubtitle: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
-    marginBottom: 16,
+    marginBottom: height * 0.02,
   },
   progressContainer: {
-    marginVertical: 16,
+    marginVertical: height * 0.02,
   },
   progressText: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
-    marginBottom: 8,
+    marginBottom: height * 0.01,
   },
   progressBar: {
-    height: 10,
+    height: height * 0.015,
     backgroundColor: theme.colors.MessageGray,
-    borderRadius: 5,
+    borderRadius: height * 0.0075,
     overflow: 'hidden',
   },
   progressFill: {
@@ -72,22 +74,22 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.mainBlue,
   },
   note: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
     textAlign: 'center',
-    marginTop: 16,
+    marginTop: height * 0.02,
   },
   button: {
-    marginTop: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    marginTop: height * 0.015,
+    paddingVertical: height * 0.015,
+    paddingHorizontal: width * 0.05,
     backgroundColor: theme.colors.mainBlue,
-    borderRadius: 5,
+    borderRadius: width * 0.025,
     alignSelf: 'flex-start',
   },
   buttonText: {
     color: theme.colors.White,
-    fontSize: 14,
+    fontSize: width * 0.04,
   },
 });
 

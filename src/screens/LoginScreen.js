@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import theme from '../theme';
 import images from '../assets/images';  // 이미지 객체 임포트
+
+const { width, height } = Dimensions.get('window');
 
 const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Image source={images.logo} style={styles.logo} />      
+      <Image source={images.logo} style={styles.logo} />
       <TextInput style={styles.input} placeholder="아이디 입력" placeholderTextColor={theme.colors.textGray} />
       <TextInput style={styles.input} placeholder="비밀번호 입력" placeholderTextColor={theme.colors.textGray} secureTextEntry />
       <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('MainInformation')}>
@@ -45,67 +47,67 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.colors.White,
-    padding: 20,
+    padding: width * 0.05,
   },
   header: {
     position: 'absolute',
-    top: 60,
-    left: 20,
-    fontSize: 18,
+    top: height * 0.07,
+    left: width * 0.05,
+    fontSize: width * 0.045,
     color: theme.colors.textDarkGray,
   },
   logo: {
-    width: 150,
-    height: 100,
-    marginBottom: 40,
+    width: width * 0.4,
+    height: height * 0.1,
+    marginBottom: height * 0.05,
   },
   input: {
     width: '100%',
-    height: 50,
+    height: height * 0.06,
     backgroundColor: theme.colors.subBlue,
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    marginBottom: 15,
+    borderRadius: width * 0.025,
+    paddingHorizontal: width * 0.04,
+    marginBottom: height * 0.02,
     color: theme.colors.Black,
   },
   loginButton: {
     width: '100%',
-    height: 50,
+    height: height * 0.06,
     backgroundColor: theme.colors.mainBlue,
-    borderRadius: 10,
+    borderRadius: width * 0.025,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: height * 0.02,
   },
   loginButtonText: {
     color: theme.colors.White,
-    fontSize: 18,
+    fontSize: width * 0.045,
   },
   snsLoginText: {
-    fontSize: 16,
-    marginTop: 30,
-    marginBottom: 10,
+    fontSize: width * 0.04,
+    marginTop: height * 0.03,
+    marginBottom: height * 0.01,
     color: theme.colors.textDarkGray,
   },
   snsLoginContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '60%',
-    marginBottom: 20,
+    marginBottom: height * 0.02,
   },
   snsButton: {
-    width: 50,
-    height: 50,
+    width: width * 0.12,
+    height: width * 0.12,
     backgroundColor: theme.colors.MessageGray,
-    borderRadius: 25,
+    borderRadius: (width * 0.12) / 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
   snsButtonIcon: {
-    width: 24,
-    height: 24,
+    width: width * 0.06,
+    height: width * 0.06,
     backgroundColor: theme.colors.White,
-    borderRadius: 12,
+    borderRadius: (width * 0.06) / 2,
   },
   footerContainer: {
     flexDirection: 'row',
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   footerButton: {
-    padding: 10,
+    padding: height * 0.015,
   },
   footerButtonText: {
     color: theme.colors.textDarkGray,

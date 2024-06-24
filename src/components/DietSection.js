@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import theme from '../theme';
+
+const { width, height } = Dimensions.get('window');
 
 const DietSection = () => {
   return (
@@ -20,34 +22,34 @@ const DietSection = () => {
 const styles = StyleSheet.create({
   section: {
     backgroundColor: theme.colors.White,
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
+    borderRadius: width * 0.02,
+    padding: width * 0.04,
+    marginBottom: height * 0.02,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: width * 0.045,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: height * 0.01,
     color: theme.colors.Black,
   },
   sectionSubtitle: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
-    marginBottom: 16,
+    marginBottom: height * 0.02,
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 8,
+    paddingVertical: height * 0.01,
     borderBottomWidth: 1,
     borderBottomColor: theme.colors.MessageGray,
   },
   rowLabel: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
   },
   rowValue: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     fontWeight: 'bold',
     color: theme.colors.Black,
   },

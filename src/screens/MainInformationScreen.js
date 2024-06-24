@@ -6,7 +6,7 @@ import MedicationSection from '../components/MedicationSection';
 import WaterIntakeSection from '../components/WaterIntakeSection';
 import DietSection from '../components/DietSection';
 
-const MainInformationScreen = () => {
+const MainInformationScreen = ({ navigation }) => {
   const [isDetailedRisk, setIsDetailedRisk] = useState(false);
   const [isDialysis, setIsDialysis] = useState(false);
   const [isMedication, setIsMedication] = useState(false);
@@ -22,7 +22,7 @@ const MainInformationScreen = () => {
       <DialysisSection isDialysis={isDialysis} toggleDialysis={toggleDialysis} />
       <MedicationSection isMedication={isMedication} toggleMedication={toggleMedication} />
       <DietSection />
-      <WaterIntakeSection activeTab={activeTab} setActiveTab={setActiveTab} />
+      <WaterIntakeSection activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} />
     </ScrollView>
   );
 };

@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import theme from '../theme';
 
-const WaterIntakeSection = ({ activeTab, setActiveTab }) => {
+const { width, height } = Dimensions.get('window');
+
+const WaterIntakeSection = ({ activeTab, setActiveTab, navigation }) => {
   const renderContent = () => {
     switch (activeTab) {
       case '수분':
@@ -30,6 +32,9 @@ const WaterIntakeSection = ({ activeTab, setActiveTab }) => {
               <Text style={styles.rowLabel}>심박수</Text>
               <Text style={styles.rowValue}>--</Text>
             </View>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BloodPressure')}>
+              <Text style={styles.buttonText}>혈압 기록하기</Text>
+            </TouchableOpacity>
           </View>
         );
       case '체중':
@@ -40,6 +45,9 @@ const WaterIntakeSection = ({ activeTab, setActiveTab }) => {
               <Text style={styles.rowValue}>--kg</Text>
             </View>
             <Text style={styles.note}>몸무게를 기록해보세요!</Text>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Weight')}>
+              <Text style={styles.buttonText}>체중 기록하기</Text>
+            </TouchableOpacity>
           </View>
         );
       case '혈당':
@@ -85,19 +93,19 @@ const WaterIntakeSection = ({ activeTab, setActiveTab }) => {
 const styles = StyleSheet.create({
   section: {
     backgroundColor: theme.colors.White,
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
+    borderRadius: width * 0.02,
+    padding: width * 0.04,
+    marginBottom: height * 0.02,
   },
   tabs: {
     flexDirection: 'row',
-    marginBottom: 16,
+    marginBottom: height * 0.02,
   },
   tab: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     fontWeight: 'bold',
-    marginRight: 16,
-    paddingVertical: 4,
+    marginRight: width * 0.04,
+    paddingVertical: height * 0.01,
     color: theme.colors.NavBar,
   },
   activeTab: {
@@ -108,24 +116,36 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 8,
+    paddingVertical: height * 0.01,
     borderBottomWidth: 1,
     borderBottomColor: theme.colors.MessageGray,
   },
   rowLabel: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
   },
   rowValue: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     fontWeight: 'bold',
     color: theme.colors.Black,
   },
   note: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
     textAlign: 'center',
-    marginTop: 16,
+    marginTop: height * 0.02,
+  },
+  button: {
+    marginTop: height * 0.02,
+    paddingVertical: height * 0.015,
+    paddingHorizontal: width * 0.04,
+    backgroundColor: theme.colors.mainBlue,
+    borderRadius: width * 0.02,
+    alignSelf: 'center',
+  },
+  buttonText: {
+    color: theme.colors.White,
+    fontSize: width * 0.045,
   },
 });
 

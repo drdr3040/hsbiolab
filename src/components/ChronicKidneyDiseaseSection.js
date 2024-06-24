@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import theme from '../theme';
+
+const { width, height } = Dimensions.get('window');
 
 const ChronicKidneyDiseaseSection = ({ isDetailedRisk, toggleRiskDetail }) => {
   return (
@@ -27,52 +29,52 @@ const ChronicKidneyDiseaseSection = ({ isDetailedRisk, toggleRiskDetail }) => {
 const styles = StyleSheet.create({
   section: {
     backgroundColor: theme.colors.White,
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
+    borderRadius: width * 0.02,
+    padding: width * 0.04,
+    marginBottom: height * 0.02,
   },
   title: {
-    fontSize: 18,
+    fontSize: width * 0.045,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: height * 0.01,
     color: theme.colors.Black,
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
-    marginBottom: 8,
+    marginBottom: height * 0.01,
   },
   warning: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textRed,
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 8,
+    paddingVertical: height * 0.01,
     borderBottomWidth: 1,
     borderBottomColor: theme.colors.MessageGray,
   },
   rowLabel: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     color: theme.colors.textDarkGray,
   },
   rowValue: {
-    fontSize: 14,
+    fontSize: width * 0.04,
     fontWeight: 'bold',
     color: theme.colors.Black,
   },
   button: {
-    marginTop: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    marginTop: height * 0.015,
+    paddingVertical: height * 0.015,
+    paddingHorizontal: width * 0.05,
     backgroundColor: theme.colors.mainBlue,
-    borderRadius: 5,
+    borderRadius: width * 0.025,
     alignSelf: 'flex-start',
   },
   buttonText: {
     color: theme.colors.White,
-    fontSize: 14,
+    fontSize: width * 0.04,
   },
 });
 
