@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet,TouchableOpacity, Alert  } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, Dimensions } from 'react-native';
 import theme from './src/theme';
+
+const { width, height } = Dimensions.get('window');
 
 const Calendar = () => {
   const [dates, setDates] = useState([]);
@@ -28,7 +30,7 @@ const Calendar = () => {
   const today = new Date();
 
   const handlePress = (day, date) => {
-    Alert.alert(`${day}요일`, `${date}일을 눌렀습니다.`);
+    Alert.alert(`${day}요일, ${date}일을 눌렀습니다.`);
   };
 
   return (
@@ -36,16 +38,16 @@ const Calendar = () => {
       {dates.map((item, index) => {
         const isToday = item.date === today.getDate();
         return (
-        <TouchableOpacity 
+          <TouchableOpacity 
             key={index} 
             style={styles.dayContainer}
             onPress={() => handlePress(item.day, item.date)}
           >
-             <View style={[styles.innerContainer, isToday && styles.todayContainer]}>
-               <Text style={isToday ? styles.todayText : styles.dayText}>{isToday ? '오늘' : item.day}</Text>
-               <Text style={isToday ? styles.todayDate : styles.dateText}>{item.date}</Text>
-             </View>
-         </TouchableOpacity>
+            <View style={[styles.innerContainer, isToday && styles.todayContainer]}>
+              <Text style={isToday ? styles.todayText : styles.dayText}>{isToday ? '오늘' : item.day}</Text>
+              <Text style={isToday ? styles.todayDate : styles.dateText}>{item.date}</Text>
+            </View>
+          </TouchableOpacity>
         );
       })}
     </View>
@@ -76,25 +78,25 @@ const styles = StyleSheet.create({
   innerContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 40, // 고정된 너비
-    height: 60, // 고정된 높이
+    width: width * 0.1, // 10% of screen width
+    height: height * 0.1, // 10% of screen height
   },
   dayText: {
-    fontSize: 16,
+    fontSize: width * 0.04, // 4% of screen width
     color: theme.colors.Black,
     marginBottom: 5,
   },
   todayText: {
-    fontSize: 16,
+    fontSize: width * 0.04, // 4% of screen width
     color: theme.colors.mainBlue,
     marginBottom: 5,
   },
   dateText: {
-    fontSize: 14,
+    fontSize: width * 0.035, // 3.5% of screen width
     color: theme.colors.Black,
   },
   todayDate: {
-    fontSize: 14,
+    fontSize: width * 0.035, // 3.5% of screen width
     color: theme.colors.mainBlue,
   },
 });
