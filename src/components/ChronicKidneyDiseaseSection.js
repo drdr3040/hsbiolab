@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   section: {
     backgroundColor: theme.colors.White,
     borderRadius: width * 0.02,
-    padding: width * 0.04,
+    padding: width * 0.05,
     marginBottom: height * 0.02,
   },
   title: {
