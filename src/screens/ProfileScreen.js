@@ -19,10 +19,10 @@ const ProfileScreen = ({ navigation }) => {
   const [isDialysisNo, setIsDialysisNo] = useState(true);
 
   const data = [
-    { key: '이름을 알려주세요.', placeholder: '홍길동' },
-    { key: '키를 입력해주세요.', placeholder: '100 cm' },
-    { key: '나이를 알려주세요.', placeholder: '00 세' },
-    { key: '몸무게를 입력해주세요.', placeholder: '00 Kg' },
+    { key: '이름을 알려주세요.', placeholder: '홍길동', unit: '' },
+    { key: '키를 입력해주세요.', placeholder: '100', unit: ' cm' },
+    { key: '나이를 알려주세요.', placeholder: '00', unit: ' 세' },
+    { key: '몸무게를 입력해주세요.', placeholder: '00', unit: ' Kg' },
   ];
 
   const handleOptionPress = (option) => {
@@ -39,11 +39,15 @@ const ProfileScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <View key={item.key} style={styles.inputContainer}>
       <Text style={styles.label}>{item.key}</Text>
-      <TextInput
-        style={styles.input}
-        placeholder={item.placeholder}
-        placeholderTextColor={theme.colors.textGray}
-      />
+      <View style={styles.inputWithUnit}>
+        <TextInput
+          style={styles.input}
+          placeholder={item.placeholder}
+          placeholderTextColor={theme.colors.textGray}
+          autoCapitalize="none"
+        />
+        <Text style={styles.unit}>{item.unit}</Text>
+      </View>
     </View>
   );
 
@@ -127,12 +131,22 @@ const styles = StyleSheet.create({
     fontSize: width * 0.04,
     color: theme.colors.Black,
   },
-  input: {
+  inputWithUnit: {
+    flexDirection: 'row',
+    alignItems: 'center',
     height: height * 0.06,
     backgroundColor: theme.colors.subBlue,
     borderRadius: 10,
     paddingHorizontal: width * 0.04,
     marginTop: height * 0.01,
+  },
+  input: {
+    flex: 1,
+    color: theme.colors.Black,
+    paddingRight: width * 0.02,
+  },
+  unit: {
+    fontWeight: 'bold',
     color: theme.colors.Black,
   },
   note: {
