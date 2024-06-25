@@ -44,7 +44,6 @@ function BottomNavigationBar() {
                   width: size,
                   height: size,
                   tintColor: color,
-                  marginBottom: 4,
                   resizeMode: 'contain',
                 }}
               />
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
   },
   tabBarLabel: {
     fontSize: width * 0.03,
-    marginTop: 14, // Add margin to separate the icon and the label
+    marginTop: height * 0.017, // Add margin to separate the icon and the label
   },
 });
 
