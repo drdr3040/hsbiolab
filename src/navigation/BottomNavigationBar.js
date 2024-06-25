@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     gap: width * 0.02,
     width: '100%',
     height: height * 0.09,
-    backgroundColor: theme.colors.White,  // Use theme color
+    backgroundColor: theme.colors.White,
   },
   tabBarLabel: {
     fontSize: width * 0.03,
