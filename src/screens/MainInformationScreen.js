@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView, View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native';
-import ChronicKidneyDiseaseSection from '../components/ChronicKidneyDiseaseSection';
+import ChronicKidneyDiseaseSection from '../components/MainInformationSection/ChronicKidneyDiseaseSection';
 import DialysisSection from '../components/DialysisSection';
 import MedicationSection from '../components/MedicationSection';
 import DietSection from '../components/DietSection';
