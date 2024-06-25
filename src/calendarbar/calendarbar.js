@@ -6,6 +6,7 @@ const { width, height } = Dimensions.get('window');
 
 const Calendar = () => {
   const [dates, setDates] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     generateCalendarDates();
@@ -25,27 +26,38 @@ const Calendar = () => {
     }
 
     setDates(tempDates);
+    setSelectedDate(today.getDate()); // Set the initial selected date to today
   };
 
   const today = new Date();
 
   const handlePress = (day, date) => {
-    Alert.alert(`${day}요일, ${date}일을 눌렀습니다.`);
+    setSelectedDate(date);
   };
 
   return (
     <View style={styles.calendarContainer}>
       {dates.map((item, index) => {
         const isToday = item.date === today.getDate();
+        const isSelected = item.date === selectedDate;
+
         return (
           <TouchableOpacity 
             key={index} 
             style={styles.dayContainer}
             onPress={() => handlePress(item.day, item.date)}
           >
-            <View style={[styles.innerContainer, isToday && styles.todayContainer]}>
-              <Text style={isToday ? styles.todayText : styles.dayText}>{isToday ? '오늘' : item.day}</Text>
-              <Text style={isToday ? styles.todayDate : styles.dateText}>{item.date}</Text>
+            <View style={[
+              styles.innerContainer, 
+              isSelected && styles.selectedContainer
+            ]}>
+               {isToday && <View style={styles.dot} />}
+              <Text style={isSelected ? styles.selectedText : styles.dayText}>
+                {item.day}
+              </Text>
+              <Text style={isSelected ? styles.selectedDate : styles.dateText}>
+                {item.date}
+              </Text>
             </View>
           </TouchableOpacity>
         );
@@ -67,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 5,
   },
-  todayContainer: {
+  selectedContainer: {
     backgroundColor: theme.colors.subBlue,
     borderRadius: 10,
     paddingVertical: 10,
@@ -86,7 +98,7 @@ const styles = StyleSheet.create({
     color: theme.colors.Black,
     marginBottom: 5,
   },
-  todayText: {
+  selectedText: {
     fontSize: width * 0.04, // 4% of screen width
     color: theme.colors.mainBlue,
     marginBottom: 5,
@@ -95,9 +107,17 @@ const styles = StyleSheet.create({
     fontSize: width * 0.035, // 3.5% of screen width
     color: theme.colors.Black,
   },
-  todayDate: {
+  selectedDate: {
     fontSize: width * 0.035, // 3.5% of screen width
     color: theme.colors.mainBlue,
+  },
+  dot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: theme.colors.mainBlue,
+    position: 'absolute',
+    top: 10,
   },
 });
 
