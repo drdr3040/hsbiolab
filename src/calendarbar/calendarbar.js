@@ -94,22 +94,30 @@ const styles = StyleSheet.create({
     height: height * 0.1, // 10% of screen height
   },
   dayText: {
+    ...theme.fonts.Regular_12,
     fontSize: width * 0.04, // 4% of screen width
     color: theme.colors.Black,
     marginBottom: 5,
+    font: 'Noto Sans',
   },
   selectedText: {
+    ...theme.fonts.Regular_12,
     fontSize: width * 0.04, // 4% of screen width
     color: theme.colors.mainBlue,
     marginBottom: 5,
+    font: 'Noto Sans',
   },
   dateText: {
+    ...theme.fonts.Regular_14,
     fontSize: width * 0.035, // 3.5% of screen width
     color: theme.colors.Black,
+    font: 'Noto Sans',
   },
   selectedDate: {
+    ...theme.fonts.Regular_14,
     fontSize: width * 0.035, // 3.5% of screen width
     color: theme.colors.mainBlue,
+    font: theme.fonts.,
   },
   dot: {
     width: 6,
