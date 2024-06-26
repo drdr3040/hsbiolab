@@ -3,15 +3,30 @@ import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions 
 import theme from '../theme';
 import images from '../../assets/icons/images';  // 이미지 객체 임포트
 import LoginButton from '../components/atomic/LoginButton';
+import CustomTextInput from '../components/atomic/CustomTextInput';
 
 const { width, height } = Dimensions.get('window');
 
 const LoginScreen = ({ navigation }) => {
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
   return (
     <View style={styles.container}>
       <Image source={images.logo} style={styles.logo} />
-      <TextInput style={styles.input} placeholder="아이디 입력" placeholderTextColor={theme.colors.textGray} />
-      <TextInput style={styles.input} placeholder="비밀번호 입력" placeholderTextColor={theme.colors.textGray} secureTextEntry />
+      <CustomTextInput 
+        placeholder="아이디 입력"
+        value={username}
+        onChangeText={setUsername}
+        style={styles.input}
+      />
+      <CustomTextInput 
+        placeholder="비밀번호 입력"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+        style={styles.input}
+      />
       <LoginButton 
         title="로그인"
         onPress={() => navigation.navigate('MainInformation')}

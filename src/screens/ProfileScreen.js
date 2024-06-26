@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, VirtualizedList } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import theme from '../theme';
+import CustomDropDownPicker from '../components/atomic/CustomDropDownPicker';
+import DialysisOption from '../components/atomic/DialysisOption';
 
 const { width, height } = Dimensions.get('window');
 
@@ -69,35 +71,17 @@ const ProfileScreen = ({ navigation }) => {
         <>
           <Text style={styles.label}>투석 여부를 알려주세요.</Text>
           <Text style={styles.note}>투석 중일 경우 투석날과 복약등의 관리를 해드려요.</Text>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={[styles.optionButton, isDialysisYes && styles.selectedButton]}
-              onPress={() => handleOptionPress('네')}
-            >
-              <Text style={[styles.optionText, isDialysisYes && styles.selectedButtonText]}>네</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.optionButton, isDialysisNo && styles.selectedButton]}
-              onPress={() => handleOptionPress('아니오')}
-            >
-              <Text style={[styles.optionText, isDialysisNo && styles.selectedButtonText]}>아니오</Text>
-            </TouchableOpacity>
-          </View>
+          <DialysisOption selectedOption={selectedOption} onOptionPress={setSelectedOption} />
           <Text style={styles.label}>식단 목표를 정해드려요.</Text>
           <Text style={styles.note}>관리하고자 하는 질병에 따라 다른 식단 목표를 정해드려요.</Text>
-          <View style={styles.dropdownContainer}>
-            <DropDownPicker
-              open={open}
-              value={selectedDiet}
-              items={items}
-              setOpen={setOpen}
-              setValue={setSelectedDiet}
-              setItems={setItems}
-              dropDownDirection="TOP"
-              zIndex={5000}
-              containerStyle={styles.dropdown}
-            />
-          </View>
+          <CustomDropDownPicker
+            open={open}
+            value={selectedDiet}
+            items={items}
+            setOpen={setOpen}
+            setValue={setSelectedDiet}
+            setItems={setItems}
+          />
           <View style={styles.actionContainer}>
             <TouchableOpacity style={styles.startButton} onPress={() => navigation.navigate('MainInformation')}>
               <Text style={styles.startButtonText}>시작하기</Text>
