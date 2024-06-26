@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import theme from '../theme';
-import images from '../assets/images';  // 이미지 객체 임포트
+import images from '../../assets/icons/images';  // 이미지 객체 임포트
+import LoginButton from '../components/atomic/LoginButton';
 
 const { width, height } = Dimensions.get('window');
 
@@ -11,9 +12,11 @@ const LoginScreen = ({ navigation }) => {
       <Image source={images.logo} style={styles.logo} />
       <TextInput style={styles.input} placeholder="아이디 입력" placeholderTextColor={theme.colors.textGray} />
       <TextInput style={styles.input} placeholder="비밀번호 입력" placeholderTextColor={theme.colors.textGray} secureTextEntry />
-      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('MainInformation')}>
-        <Text style={styles.loginButtonText}>로그인</Text>
-      </TouchableOpacity> 
+      <LoginButton 
+        title="로그인"
+        onPress={() => navigation.navigate('MainInformation')}
+        style={styles.loginButton}
+      />
       <Text style={styles.snsLoginText}>SNS로 간편 로그인</Text>
       <View style={styles.snsLoginContainer}>
         <TouchableOpacity style={styles.snsButton}>
