@@ -10,7 +10,7 @@ const BloodPressureScreen = ({ navigation }) => {
       <View style={styles.header}>
         <Text style={styles.title}>혈압 관리</Text>
         <Button title="저장하기" onPress={() => { /* 저장 기능 구현 */ }} />
-      </View>
+      </View> 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>수축기</Text>
         <TextInput style={styles.input} placeholder="--" keyboardType="numeric" />

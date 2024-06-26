@@ -13,7 +13,7 @@ const LoginScreen = ({ navigation }) => {
       <TextInput style={styles.input} placeholder="비밀번호 입력" placeholderTextColor={theme.colors.textGray} secureTextEntry />
       <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('MainInformation')}>
         <Text style={styles.loginButtonText}>로그인</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> 
       <Text style={styles.snsLoginText}>SNS로 간편 로그인</Text>
       <View style={styles.snsLoginContainer}>
         <TouchableOpacity style={styles.snsButton}>

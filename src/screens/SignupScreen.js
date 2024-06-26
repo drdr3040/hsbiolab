@@ -16,7 +16,7 @@ const SignupScreen = ({ navigation }) => {
       <TextInput style={styles.input} placeholder="비밀번호 확인" placeholderTextColor={theme.colors.textGray} secureTextEntry />
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.buttonText}>Email 인증하기</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> 
     </View>
   );
 };

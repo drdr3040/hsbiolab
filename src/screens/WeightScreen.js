@@ -18,7 +18,7 @@ const WeightScreen = ({ navigation }) => {
         <Text style={styles.weightText}>00 Kg</Text>
         <TouchableOpacity style={styles.weightButton}>
           <Text style={styles.weightButtonText}>+</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> 
       </View>
       <Text style={styles.note}>체중을 기록해보세요!</Text>
       <View style={styles.goalContainer}>

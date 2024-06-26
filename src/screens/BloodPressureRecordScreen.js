@@ -21,7 +21,7 @@ const BloodPressureRecordScreen = ({ navigation }) => {
     const currentTime = selectedTime || time;
     setShowTimePicker(false);
     setTime(currentTime);
-  };
+  }; 
 
   return (
     <View style={styles.container}>
