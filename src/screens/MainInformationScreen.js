@@ -5,6 +5,7 @@ import DialysisSection from '../components/MainInformationSection/DialysisSectio
 import MedicationSection from '../components/MainInformationSection/MedicationSection';
 import DietSection from '../components/MainInformationSection/DietSection';
 import WaterIntakeSection from '../components/MainInformationSection/WaterIntakeSection';
+import CustomButton from '../components/atomic/CustomButton';
 import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
@@ -36,9 +37,10 @@ const MainInformationScreen = ({ navigation }) => {
       <View style={styles.sectionContainer}>
         <WaterIntakeSection activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} />
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
-        <Text style={styles.buttonText}>프로필 설정</Text>
-      </TouchableOpacity>
+      <CustomButton
+        title="프로필로 이동"
+        onPress={() => navigation.navigate('Profile')}
+      />
     </ScrollView>
   );
 };
