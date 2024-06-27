@@ -6,13 +6,6 @@ const { width, height } = Dimensions.get('window');
 
 const WaterIntakeSection = ({ navigation }) => {
   const [activeTab, setActiveTab] = useState('수분');
-  const [waterIntake, setWaterIntake] = useState(0);
-
-  const incrementWaterIntake = () => {
-    if (waterIntake < 5) {
-      setWaterIntake(waterIntake + 1);
-    }
-  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -21,10 +14,10 @@ const WaterIntakeSection = ({ navigation }) => {
           <View>
             <View style={styles.row}>
               <Text style={styles.rowLabel}>총 수분량</Text>
-              <Text style={styles.rowValue}>{waterIntake}잔/5잔</Text>
+              <Text style={styles.rowValue}>?잔/5잔</Text>
             </View>
             <Text style={styles.note}>수분을 기록해보세요!</Text>
-            <TouchableOpacity style={styles.button} onPress={incrementWaterIntake}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('WaterRecord')}>
               <Text style={styles.buttonText}>수분 기록하기</Text>
             </TouchableOpacity>
           </View>
