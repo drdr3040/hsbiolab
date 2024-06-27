@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Dimensions } from 'react-native';
-import theme from './src/theme';
+import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
-const Calendar = () => {
+const Calendarbar = () => {
   const [dates, setDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -125,4 +125,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Calendar;
+export default Calendarbar;

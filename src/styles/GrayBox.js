@@ -1,10 +1,10 @@
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import theme from '../theme';
 
 const styles = StyleSheet.create({
  GrayBox: {
-    width: 200,
-    height: 50,
+    width: width * 0.2,
+    height:  height* 0.05,
     backgroundColor: theme.colors.backGray,
  }, 
  textInput: {
