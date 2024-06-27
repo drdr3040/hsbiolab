@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
       />
       <LoginButton 
         title="로그인"
-        onPress={() => navigation.navigate('MainInformation')}
+        onPress={() => navigation.navigate('MainStack', { screen: 'MainInformation' })}
         style={styles.loginButton}
       />
       <Text style={styles.snsLoginText}>SNS로 간편 로그인</Text>
