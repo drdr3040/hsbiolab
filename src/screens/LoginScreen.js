@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import theme from '../theme';
-import images from '../../assets/icons/images';  // 이미지 객체 임포트
+import images from '../../assets/icons/images';
 import LoginButton from '../components/atomic/LoginButton';
 import CustomTextInput from '../components/atomic/CustomTextInput';
 
@@ -29,7 +29,7 @@ const LoginScreen = ({ navigation }) => {
       />
       <LoginButton 
         title="로그인"
-        onPress={() => navigation.navigate('MainStack', { screen: 'MainInformation' })}
+        onPress={() => navigation.navigate('MainTabs')}
         style={styles.loginButton}
       />
       <Text style={styles.snsLoginText}>SNS로 간편 로그인</Text>
@@ -67,13 +67,6 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.White,
     padding: width * 0.05,
   },
-  header: {
-    position: 'absolute',
-    top: height * 0.07,
-    left: width * 0.05,
-    fontSize: width * 0.045,
-    color: theme.colors.textDarkGray,
-  },
   logo: {
     width: width * 0.4,
     height: height * 0.1,
@@ -97,10 +90,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: height * 0.02,
   },
-  loginButtonText: {
-    color: theme.colors.White,
-    fontSize: width * 0.045,
-  },
   snsLoginText: {
     fontSize: width * 0.04,
     marginTop: height * 0.03,
@@ -120,12 +109,6 @@ const styles = StyleSheet.create({
     borderRadius: (width * 0.12) / 2,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  snsButtonIcon: {
-    width: width * 0.06,
-    height: width * 0.06,
-    backgroundColor: theme.colors.White,
-    borderRadius: (width * 0.06) / 2,
   },
   footerContainer: {
     flexDirection: 'row',
