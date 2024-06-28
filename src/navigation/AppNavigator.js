@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import BottomNavigationBar from './BottomNavigationBar';
 import BloodPressureScreen from '../screens/BloodPressureScreen'; // Adjust the import path as needed
 import WeightScreen from '../screens/WeightScreen'; // Import the new WeightNavigator
+import BloodPressureRecordScreen from '../screens/BloodPressureRecordScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const AppNavigator = () => {
         <Stack.Screen name="MainTabs" component={BottomNavigationBar} options={{ headerShown: false }} />
         <Stack.Screen name="BloodPressure" component={BloodPressureScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Weight" component={WeightScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="BloodPressureRecord" component={BloodPressureRecordScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -83,10 +83,10 @@ const ProfileScreen = ({ navigation }) => {
             setItems={setItems}
           />
           <View style={styles.actionContainer}>
-            <TouchableOpacity style={styles.startButton} onPress={() => navigation.navigate('MainInformation')}>
+            <TouchableOpacity style={styles.startButton} onPress={() => navigation.navigate('MainTabs')}>
               <Text style={styles.startButtonText}>시작하기</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.skipButton} onPress={() => navigation.navigate('MainInformation')}>
+            <TouchableOpacity style={styles.skipButton} onPress={() => navigation.navigate('MainTabs')}>
               <Text style={styles.skipButtonText}>건너뛰기</Text>
             </TouchableOpacity>
           </View>

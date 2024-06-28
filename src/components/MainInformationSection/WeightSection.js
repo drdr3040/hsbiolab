@@ -12,7 +12,7 @@ const WeightSection = ({ navigation }) => {
         <Text style={styles.rowValue}>--kg</Text>
       </View>
       <Text style={styles.note}>몸무게를 기록해보세요!</Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('WeightStack')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Weight')}>
         <Text style={styles.buttonText}>체중 기록하기</Text>
       </TouchableOpacity>
     </View>

@@ -19,7 +19,7 @@ const BloodPressureSection = ({ navigation }) => {
         <Text style={styles.rowLabel}>심박수</Text>
         <Text style={styles.rowValue}>--</Text>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BloodPressureStack')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BloodPressure')}>
         <Text style={styles.buttonText}>혈압 기록하기</Text>
       </TouchableOpacity>
     </View>
