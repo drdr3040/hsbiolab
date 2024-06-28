@@ -5,6 +5,9 @@ import DialysisSection from '../components/MainInformationSection/DialysisSectio
 import MedicationSection from '../components/MainInformationSection/MedicationSection';
 import DietSection from '../components/MainInformationSection/DietSection';
 import WaterIntakeSection from '../components/MainInformationSection/WaterIntakeSection';
+import BloodPressureSection from '../components/MainInformationSection/BloodPressureSection';
+import WeightSection from '../components/MainInformationSection/WeightSection';
+import BloodSugarSection from '../components/MainInformationSection/BloodSugarSection';
 import CustomButton from '../components/atomic/CustomButton';
 import theme from '../theme';
 
@@ -16,9 +19,25 @@ const MainInformationScreen = ({ navigation }) => {
   const [isMedication, setIsMedication] = useState(false);
   const [activeTab, setActiveTab] = useState('수분');
 
+  
   const toggleRiskDetail = () => setIsDetailedRisk(!isDetailedRisk);
   const toggleDialysis = () => setIsDialysis(!isDialysis);
   const toggleMedication = () => setIsMedication(!isMedication);
+  
+  const renderActiveSection = () => {
+        switch (activeTab) {
+        case '수분':
+            return <WaterIntakeSection navigation={navigation} />;
+        case '혈압':
+            return <BloodPressureSection navigation={navigation} />;
+        case '체중':
+            return <WeightSection navigation={navigation} />;
+        case '혈당':
+            return <BloodSugarSection navigation={navigation} />;
+        default:
+            return null;
+        }
+    };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -34,19 +53,22 @@ const MainInformationScreen = ({ navigation }) => {
       <View style={styles.sectionContainer}>
         <DietSection />
       </View>
-      <Text style={styles.header}>건강 관리</Text>
       <View style={styles.sectionContainer}>
-        <WaterIntakeSection activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} />
+      <View style={styles.tabsContainer}>
+        {['수분', '혈압', '체중', '혈당'].map(tab => (
+          <TouchableOpacity
+            key={tab}
+            onPress={() => setActiveTab(tab)}
+            style={[styles.tab, activeTab === tab && styles.activeTab]}
+          >
+            <Text style={[styles.tabText, activeTab === tab && styles.activeTabText]}>{tab}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>추가 섹션</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('BloodPressure')}>
-          <Text style={styles.sectionButton}>혈압 기록하기</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Weight')}>
-          <Text style={styles.sectionButton}>체중 기록하기</Text>
-        </TouchableOpacity>
+      <View style={styles.sectionContainer}>
+        {renderActiveSection()}
       </View>
+    </View>
       <CustomButton
         title="프로필로 이동"
         onPress={() => navigation.navigate('Profile')}
@@ -60,6 +82,28 @@ const styles = StyleSheet.create({
     paddingVertical: height * 0.02,
     backgroundColor: theme.colors.backGray,
     alignItems: 'center',
+  },
+  tabsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: theme.colors.White,
+    borderRadius: 10,
+    paddingVertical: height * 0.02,
+    marginBottom: height * 0.02,
+  },
+  tab: {
+    paddingBottom: 10,
+  },
+  activeTab: {
+    borderBottomWidth: 2,
+    borderBottomColor: theme.colors.mainBlue,
+  },
+  tabText: {
+    fontSize: width * 0.04,
+    color: theme.colors.textGray,
+  },
+  activeTabText: {
+    color: theme.colors.mainBlue,
   },
   sectionContainer: {
     width: '90%',
