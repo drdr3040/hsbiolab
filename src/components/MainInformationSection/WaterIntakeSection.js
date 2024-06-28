@@ -37,7 +37,7 @@ const WaterIntakeSection = ({ navigation }) => {
               <Text style={styles.rowLabel}>심박수</Text>
               <Text style={styles.rowValue}>--</Text>
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BloodPressure')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BloodPressureStack', { screen: 'BloodPressure' })}>
               <Text style={styles.buttonText}>혈압 기록하기</Text>
             </TouchableOpacity>
           </View>
@@ -50,7 +50,7 @@ const WaterIntakeSection = ({ navigation }) => {
               <Text style={styles.rowValue}>--kg</Text>
             </View>
             <Text style={styles.note}>몸무게를 기록해보세요!</Text>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Weight')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('WeightStack', { screen: 'Weight' })}>
               <Text style={styles.buttonText}>체중 기록하기</Text>
             </TouchableOpacity>
           </View>

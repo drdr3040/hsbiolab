@@ -1,14 +1,11 @@
-// src/navigation/BottomNavigationBar.js
-
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet, View, Dimensions } from 'react-native';
-import MainInformationScreen from '../screens/HomeScreen';
-import MyRoutineScreen from '../screens/MyRoutineScreen.js';
+import MainInformationScreen from '../screens/MainInformationScreen';
+import MyRoutineScreen from '../screens/MyRoutineScreen';
 import TestScreen from '../screens/TestScreen';
 import FindHospitalScreen from '../screens/FindHospitalScreen';
 import theme from '../theme';
-import MainInformationScreen from '../screens/MainInformationScreen.js';
 
 const Tab = createBottomTabNavigator();
 const { width, height } = Dimensions.get('window');
@@ -22,7 +19,7 @@ function BottomNavigationBar() {
             let iconName;
 
             switch (route.name) {
-              case 'MainInformation':
+              case 'Home':
                 iconName = require('../../assets/icons/home.png');
                 break;
               case 'MyRoutine':
@@ -57,7 +54,7 @@ function BottomNavigationBar() {
           tabBarLabelStyle: styles.tabBarLabel,
         })}
       >
-        <Tab.Screen name="MainInformation" component={MainInformationScreen} options={{ tabBarLabel: '홈' }} />
+        <Tab.Screen name="Home" component={MainInformationScreen} options={{ tabBarLabel: '홈' }} />
         <Tab.Screen name="MyRoutine" component={MyRoutineScreen} options={{ tabBarLabel: '나의루틴' }} />
         <Tab.Screen name="Test" component={TestScreen} options={{ tabBarLabel: '검사하기' }} />
         <Tab.Screen name="FindHospital" component={FindHospitalScreen} options={{ tabBarLabel: '병원찾기' }} />
@@ -66,7 +63,6 @@ function BottomNavigationBar() {
   );
 }
 
-//390*844
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -80,11 +76,11 @@ const styles = StyleSheet.create({
     gap: width * 0.02,
     width: '100%',
     height: height * 0.09,
-    backgroundColor: theme.colors.White,  // Use theme color
+    backgroundColor: theme.colors.White,
   },
   tabBarLabel: {
     fontSize: width * 0.03,
-    marginTop: 14, // Add margin to separate the icon and the label
+    marginTop: 14,
   },
 });
 
