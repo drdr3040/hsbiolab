@@ -5,8 +5,8 @@ import SignupScreen from '../screens/SignupScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import BottomNavigationBar from './BottomNavigationBar';
-import BloodPressureNavigator from './BloodPressureNavigator'; // Adjust the import path as needed
-import WeightNavigator from './WeightNavigator'; // Import the new WeightNavigator
+import BloodPressureScreen from '../screens/BloodPressureScreen'; // Adjust the import path as needed
+import WeightScreen from '../screens/WeightScreen'; // Import the new WeightNavigator
 
 const Stack = createStackNavigator();
 
@@ -18,8 +18,8 @@ const AppNavigator = () => {
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerTitle: 'My Profile' }} />
         <Stack.Screen name="MainTabs" component={BottomNavigationBar} options={{ headerShown: false }} />
-        <Stack.Screen name="BloodPressureStack" component={BloodPressureNavigator} options={{ headerShown: false }} />
-        <Stack.Screen name="WeightStack" component={WeightNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="BloodPressure" component={BloodPressureScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Weight" component={WeightScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

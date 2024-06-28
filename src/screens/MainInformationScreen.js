@@ -65,7 +65,7 @@ const MainInformationScreen = ({ navigation }) => {
           </TouchableOpacity>
         ))}
       </View>
-      <View style={styles.sectionContainer}>
+      <View style={styles.Container}>
         {renderActiveSection()}
       </View>
     </View>
