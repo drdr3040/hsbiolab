@@ -34,8 +34,18 @@ const MainInformationScreen = ({ navigation }) => {
       <View style={styles.sectionContainer}>
         <DietSection />
       </View>
+      <Text style={styles.header}>건강 관리</Text>
       <View style={styles.sectionContainer}>
         <WaterIntakeSection activeTab={activeTab} setActiveTab={setActiveTab} navigation={navigation} />
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>추가 섹션</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('BloodPressure')}>
+          <Text style={styles.sectionButton}>혈압 기록하기</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Weight')}>
+          <Text style={styles.sectionButton}>체중 기록하기</Text>
+        </TouchableOpacity>
       </View>
       <CustomButton
         title="프로필로 이동"

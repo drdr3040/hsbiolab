@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Button, Dimensions } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import BottomNavigationBar from '../navigation/BottomNavigationBar';
 import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
@@ -26,20 +28,6 @@ const BloodPressureScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.recordButton} onPress={() => navigation.navigate('BloodPressureRecord')}>
         <Text style={styles.recordButtonText}>혈압 기록하기</Text>
       </TouchableOpacity>
-      <View style={styles.footer}>
-        <TouchableOpacity>
-          <Text style={styles.footerText}>홈</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.footerText}>나의 루틴</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.footerText}>검사하기</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.footerText}>병원찾기</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 };

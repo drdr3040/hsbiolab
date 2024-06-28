@@ -4,10 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignupScreen from '../screens/SignupScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import WeightScreen from '../screens/WeightScreen';
-import BloodPressureScreen from '../screens/BloodPressureScreen';
-import BloodPressureRecordScreen from '../screens/BloodPressureRecordScreen';
-import MainTabNavigator from './MainTabNavigator';
+import BottomNavigationBar from './BottomNavigationBar';
+import BloodPressureNavigator from './BloodPressureNavigator'; // Adjust the import path as needed
+import WeightNavigator from './WeightNavigator'; // Import the new WeightNavigator
 
 const Stack = createStackNavigator();
 
@@ -18,10 +17,9 @@ const AppNavigator = () => {
         <Stack.Screen name="Signup" component={SignupScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerTitle: 'My Profile' }} />
-        <Stack.Screen name="MainTabs" component={MainTabNavigator} options={{ headerShown: false }} />
-        <Stack.Screen name="Weight" component={WeightScreen} options={{ headerTitle: 'Weight Management' }} />
-        <Stack.Screen name="BloodPressure" component={BloodPressureScreen} options={{ headerTitle: 'Blood Pressure Management' }} />
-        <Stack.Screen name="BloodPressureRecord" component={BloodPressureRecordScreen} options={{ headerTitle: 'Blood Pressure Record' }} />
+        <Stack.Screen name="MainTabs" component={BottomNavigationBar} options={{ headerShown: false }} />
+        <Stack.Screen name="BloodPressureStack" component={BloodPressureNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="WeightStack" component={WeightNavigator} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
