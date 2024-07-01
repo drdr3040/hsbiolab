@@ -14,46 +14,64 @@ import theme from '../theme';
 const { width, height } = Dimensions.get('window');
 
 const MainInformationScreen = ({ navigation }) => {
-  const [isDetailedRisk, setIsDetailedRisk] = useState(false);
-  const [isDialysis, setIsDialysis] = useState(false);
-  const [isMedication, setIsMedication] = useState(false);
   const [activeTab, setActiveTab] = useState('수분');
 
-  
-  const toggleRiskDetail = () => setIsDetailedRisk(!isDetailedRisk);
-  const toggleDialysis = () => setIsDialysis(!isDialysis);
-  const toggleMedication = () => setIsMedication(!isMedication);
-  
+  const [isDetailedRisk, setIsDetailedRisk] = useState(false);
+
+  const toggleRiskDetail = () => {
+    setIsDetailedRisk(prevState => !prevState);
+  };
+
+  const [isDialysis, setIsDialysis] = useState(false);
+
+  const toggleDialysis = () => {
+    setIsDialysis(prevState => !prevState);
+  };
+
+  const [isMedication, setIsMedication] = useState(false);
+
+  const toggleMedication = () => {
+    setIsMedication(prevState => !prevState);
+  };
+
   const renderActiveSection = () => {
-        switch (activeTab) {
-        case '수분':
-            return <WaterIntakeSection navigation={navigation} />;
-        case '혈압':
-            return <BloodPressureSection navigation={navigation} />;
-        case '체중':
-            return <WeightSection navigation={navigation} />;
-        case '혈당':
-            return <BloodSugarSection navigation={navigation} />;
-        default:
-            return null;
-        }
-    };
+    switch (activeTab) {
+      case '수분':
+        return <WaterIntakeSection navigation={navigation} />;
+      case '혈압':
+        return <BloodPressureSection navigation={navigation} />;
+      case '체중':
+        return <WeightSection navigation={navigation} />;
+      case '혈당':
+        return <BloodSugarSection navigation={navigation} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.sectionContainer}>
-        <ChronicKidneyDiseaseSection isDetailedRisk={isDetailedRisk} toggleRiskDetail={toggleRiskDetail} />
+        <ChronicKidneyDiseaseSection 
+            isDetailedRisk={isDetailedRisk} 
+            toggleRiskDetail={toggleRiskDetail} 
+        />
       </View>
       <View style={styles.sectionContainer}>
-        <DialysisSection isDialysis={isDialysis} toggleDialysis={toggleDialysis} />
+        <DialysisSection 
+            isDialysis={isDialysis} 
+            toggleDialysis={toggleDialysis} 
+        />
       </View>
       <View style={styles.sectionContainer}>
-        <MedicationSection isMedication={isMedication} toggleMedication={toggleMedication} />
+        <MedicationSection 
+            isMedication={isMedication}
+            toggleMedication={toggleMedication}
+        />
       </View>
       <View style={styles.sectionContainer}>
         <DietSection />
       </View>
-      <View style={styles.sectionContainer}>
       <View style={styles.tabsContainer}>
         {['수분', '혈압', '체중', '혈당'].map(tab => (
           <TouchableOpacity
@@ -65,10 +83,9 @@ const MainInformationScreen = ({ navigation }) => {
           </TouchableOpacity>
         ))}
       </View>
-      <View style={styles.Container}>
+      <View style={styles.sectionContainer}>
         {renderActiveSection()}
       </View>
-    </View>
       <CustomButton
         title="프로필로 이동"
         onPress={() => navigation.navigate('Profile')}
@@ -90,6 +107,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: height * 0.02,
     marginBottom: height * 0.02,
+    width: '90%',
   },
   tab: {
     paddingBottom: 10,

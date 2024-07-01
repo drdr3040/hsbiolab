@@ -12,8 +12,8 @@ const MainStackNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen name="MainTabs" component={BottomNavigationBar} options={{ headerShown: false }} />
       <Stack.Screen name="Weight" component={WeightScreen} options={{ headerTitle: 'Weight Management' }} />
-      <Stack.Screen name="BloodPressure" component={BloodPressureScreen} options={{ headerTitle: 'Blood Pressure Management' }} />
-      <Stack.Screen name="BloodPressureRecord" component={BloodPressureRecordScreen} options={{ headerTitle: 'Blood Pressure Record' }} />
+      <Stack.Screen name="BloodPressure" component={BloodPressureScreen} options={{ headerTitle: 'Blood Pressure Management' }} />    
+      
     </Stack.Navigator>
   );
 };
