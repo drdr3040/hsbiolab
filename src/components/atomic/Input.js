@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { View, TextInput } from 'react-native';
-import styles from '../../styles/GrayBox';
+import GrayBoxStyles from '../../design/GrayBox';
 import theme from '../../theme';
 
 const Input = ({ placeholder, secureTextEntry, textInputStyle, boxStyle }) => {
@@ -11,10 +11,10 @@ const Input = ({ placeholder, secureTextEntry, textInputStyle, boxStyle }) => {
 const [text, setText] = useState('');
 
 return (
-  <View style={[styles.GrayBox, boxStyle]}>
+  <View style={[GrayBoxStyles.GrayBox, boxStyle]}>
    <TextInput
    placeholder={placeholder}
-   style={[styles.textInput, textInputStyle]}
+   style={[GrayBoxStyles.textInput, textInputStyle]}
    placeholderTextColor = {theme.colors.textGray}
    value={text}
    onChangeText={setText}

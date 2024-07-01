@@ -3,7 +3,7 @@ import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
-export default StyleSheet.create({
+const LoginButtonStyles = StyleSheet.create({
   button: {
     height: height * 0.06,
     backgroundColor: theme.colors.mainBlue,
@@ -16,3 +16,5 @@ export default StyleSheet.create({
     fontSize: width * 0.045,
   },
 });
+
+export default LoginButtonStyles;

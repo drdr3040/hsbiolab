@@ -4,7 +4,7 @@ import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
-const styles = StyleSheet.create({
+const DialysisOptionStyles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles;
+export default DialysisOptionStyles;

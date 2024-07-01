@@ -3,7 +3,7 @@ import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
-const styles = StyleSheet.create({
+const SwitchButtonStyles = StyleSheet.create({
   container: {
     position: 'absolute',
     bottom: height * 0.045,
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 });
-  export default styles;
+  export default SwitchButtonStyles;

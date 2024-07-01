@@ -3,10 +3,10 @@ import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
-const styles = StyleSheet.create({
+const WhiteBigBoxStyles = StyleSheet.create({
  WhiteBigBox: {
-    width: width * 0.2,
-    height:  height* 0.05,
+    width: width * 0.2 * 1.16, //DataBox의 1.16배의 넓이
+    height:  height* 0.3 * 9.10, //DatatBox의 9.10배의 높이
     backgroundColor: theme.colors.White,
  }, 
  textInput: {
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default styles;
+export default WhiteBigBoxStyles;

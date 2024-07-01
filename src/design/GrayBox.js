@@ -3,7 +3,7 @@ import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
-const styles = StyleSheet.create({
+const GrayBoxStyles = StyleSheet.create({
  GrayBox: {
     width: width * 0.2,
     height:  height* 0.05,
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default styles;
+export default GrayBoxStyles;

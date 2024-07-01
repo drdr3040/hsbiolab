@@ -3,7 +3,7 @@ import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
-export default StyleSheet.create({
+const PrincipalTextInputStyles = StyleSheet.create({
   input: {
     height: height * 0.06,
     backgroundColor: theme.colors.subBlue,
@@ -13,3 +13,5 @@ export default StyleSheet.create({
     color: theme.colors.Black,
   },
 });
+
+export default PrincipalTextInputStyles;

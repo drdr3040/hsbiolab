@@ -1,7 +1,7 @@
 // src/components/CustomDropDownPicker.js
 import React from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
-import styles from '../../styles/CustomDropDownPickerStyles';
+import CustomDropDownPickerStyles from '../../design/CustomDropDownPickerStyles';
 
 const CustomDropDownPicker = ({ open, value, items, setOpen, setValue, setItems }) => {
   return (
@@ -14,7 +14,7 @@ const CustomDropDownPicker = ({ open, value, items, setOpen, setValue, setItems 
       setItems={setItems}
       dropDownDirection="TOP"
       zIndex={5000}
-      containerStyle={styles.dropdown}
+      containerStyle={CustomDropDownPickerStyles.dropdown}
     />
   );
 };

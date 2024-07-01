@@ -1,11 +1,11 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import styles from '../../styles/LoginButtonStyles';
+import LoginButtonStyles from '../../design/LoginButtonStyles';
 
 const CustomButton = ({ onPress, title, style, textStyle }) => {
   return (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
-      <Text style={[styles.buttonText, textStyle]}>{title}</Text>
+    <TouchableOpacity style={[LoginButtonStyles.button, style]} onPress={onPress}>
+      <Text style={[LoginButtonStyles.buttonText, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
