@@ -1,13 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import theme from '../../theme';
+import CustomButton from '../atomic/CustomButton';
+import LoginButtonStyles from '../../styles/LoginButtonStyles';
 
 const { width, height } = Dimensions.get('window');
 
-const DietSection = () => {
+const DietSection = ( { navigation }) => {
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>식단</Text>
+      <CustomButton 
+        title="click"
+        onPress={() => navigation.navigate('MainDiet')}
+        style={styles.LoginButtonStyles}
+        textStyle={styles.CustomButtonTextStyle}
+      />
       {['탄수화물', '단백질', '지방', '나트륨', '칼륨', '인'].map((item, index) => (
         <View key={index} style={styles.row}>
           <Text style={styles.rowLabel}>{item}</Text>
@@ -52,6 +60,10 @@ const styles = StyleSheet.create({
     fontSize: width * 0.04,
     fontWeight: 'bold',
     color: theme.colors.Black,
+  },
+  CustomButtonTextStyle: {
+    color: 'white',
+    fontSize: 18,
   },
 });
 

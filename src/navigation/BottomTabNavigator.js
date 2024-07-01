@@ -11,6 +11,7 @@ import BloodPressureScreen from '../screens/BloodPressureScreen';
 import WeightScreen from '../screens/WeightScreen';
 import BloodPressureRecordScreen from '../screens/BloodPressureRecordScreen';
 import theme from '../theme';
+import MainDietScreen from '../screens/MainDietScreen';
 
 const Tab = createBottomTabNavigator();
 const { width, height } = Dimensions.get('window');
@@ -38,6 +39,7 @@ const BottomTabNavigator = () => {
             case 'BloodPressure':
             case 'Weight':
             case 'BloodPressureRecord':
+            case 'MainDiet':
               iconName = null; // 실제로는 보이지 않도록 설정
               break;
             default:
@@ -70,6 +72,7 @@ const BottomTabNavigator = () => {
       <Tab.Screen name="BloodPressure" component={BloodPressureScreen} options={{ tabBarButton: () => null }} />
       <Tab.Screen name="Weight" component={WeightScreen} options={{ tabBarButton: () => null }} />
       <Tab.Screen name="BloodPressureRecord" component={BloodPressureRecordScreen} options={{ tabBarButton: () => null }} />
+      <Tab.Screen name="MainDiet" component={MainDietScreen} options={{ tabBarButton: () => null }} />
     </Tab.Navigator>
   );
 };

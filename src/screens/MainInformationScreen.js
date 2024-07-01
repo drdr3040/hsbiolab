@@ -70,7 +70,9 @@ const MainInformationScreen = ({ navigation }) => {
         />
       </View>
       <View style={styles.sectionContainer}>
-        <DietSection />
+        <DietSection 
+            navigation={navigation}
+        />
       </View>
       <View style={styles.tabsContainer}>
         {['수분', '혈압', '체중', '혈당'].map(tab => (
