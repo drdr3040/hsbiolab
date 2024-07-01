@@ -5,6 +5,7 @@ import theme from '../../theme';
 const { width, height } = Dimensions.get('window');
 
 const WaterIntakeSection = ({ navigation }) => {
+<<<<<<< HEAD
   const [activeTab, setActiveTab] = useState('수분');
 
   const renderContent = () => {
@@ -80,17 +81,20 @@ const WaterIntakeSection = ({ navigation }) => {
         return null;
     }
   };
+=======
+  const [cups, setCups] = useState(0);
+>>>>>>> link_navigate
 
   return (
     <View style={styles.section}>
-      <View style={styles.tabs}>
-        {['수분', '혈압', '체중', '혈당'].map(tab => (
-          <TouchableOpacity key={tab} onPress={() => setActiveTab(tab)}>
-            <Text style={[styles.tab, activeTab === tab && styles.activeTab]}>{tab}</Text>
-          </TouchableOpacity>
-        ))}
+      <View style={styles.row}>
+        <Text style={styles.rowLabel}>총 수분량</Text>
+        <Text style={styles.rowValue}>{cups}잔/5잔</Text>
       </View>
-      {renderContent()}
+      <Text style={styles.note}>수분을 기록해보세요!</Text>
+      <TouchableOpacity style={styles.button} onPress={() => setCups(cups + 1)}>
+        <Text style={styles.buttonText}>물 한잔 기록</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -99,24 +103,8 @@ const styles = StyleSheet.create({
   section: {
     backgroundColor: theme.colors.White,
     borderRadius: width * 0.02,
-    padding: width * 0.04,
+    padding: width * 0.05,
     marginBottom: height * 0.02,
-  },
-  tabs: {
-    flexDirection: 'row',
-    marginBottom: height * 0.02,
-  },
-  tab: {
-    fontSize: width * 0.04,
-    fontWeight: 'bold',
-    marginRight: width * 0.04,
-    paddingVertical: height * 0.01,
-    color: theme.colors.NavBar,
-  },
-  activeTab: {
-    borderBottomWidth: 2,
-    borderBottomColor: theme.colors.mainBlue,
-    color: theme.colors.mainBlue,
   },
   row: {
     flexDirection: 'row',
@@ -134,23 +122,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: theme.colors.Black,
   },
-  note: {
-    fontSize: width * 0.04,
-    color: theme.colors.textDarkGray,
-    textAlign: 'center',
-    marginTop: height * 0.02,
-  },
   button: {
-    marginTop: height * 0.02,
+    marginTop: height * 0.015,
     paddingVertical: height * 0.015,
-    paddingHorizontal: width * 0.04,
+    paddingHorizontal: width * 0.05,
     backgroundColor: theme.colors.mainBlue,
-    borderRadius: width * 0.02,
+    borderRadius: width * 0.025,
     alignSelf: 'center',
   },
   buttonText: {
     color: theme.colors.White,
-    fontSize: width * 0.045,
+    fontSize: width * 0.04,
   },
 });
 

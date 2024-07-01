@@ -43,6 +43,9 @@ const WeightScreen = ({ navigation }) => {
         <Text style={styles.chartNote}>현재 체중</Text>
         <Text style={styles.chartNote}>목표 체중 ?kg</Text>
         {/* 차트 컴포넌트 추가 */}
+      <View style={styles.header}>
+        <Button title="닫기" onPress={() => navigation.goBack()} />
+      </View>
       </View>
     </View>
   );

@@ -1,15 +1,17 @@
-import React from 'react';
+// LoginScreen.js
+
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import theme from '../theme';
-import images from '../../assets/icons/images';
+import images from '../../assets/icons/images';  // Assuming you have images object that contains your logo
 import LoginButton from '../components/atomic/LoginButton';
 import CustomTextInput from '../components/atomic/CustomTextInput';
 
 const { width, height } = Dimensions.get('window');
 
 const LoginScreen = ({ navigation }) => {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <View style={styles.container}>
@@ -29,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
       />
       <LoginButton 
         title="로그인"
-        onPress={() => navigation.navigate('MainTabs')}
+        onPress={() => navigation.navigate('MainApp')}
         style={styles.loginButton}
       />
       <Text style={styles.snsLoginText}>SNS로 간편 로그인</Text>

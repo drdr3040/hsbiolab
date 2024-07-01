@@ -7,6 +7,9 @@ import MainInformationScreen from '../screens/MainInformationScreen';
 import MyRoutineScreen from '../screens/MyRoutineScreen';
 import TestScreen from '../screens/TestScreen';
 import FindHospitalScreen from '../screens/FindHospitalScreen';
+import BloodPressureScreen from '../screens/BloodPressureScreen';
+import WeightScreen from '../screens/WeightScreen';
+import BloodPressureRecordScreen from '../screens/BloodPressureRecordScreen';
 import theme from '../theme';
 
 const Tab = createBottomTabNavigator();
@@ -32,11 +35,16 @@ const BottomTabNavigator = () => {
             case 'FindHospital':
               iconName = require('../../assets/icons/findhospital.png');
               break;
+            case 'BloodPressure':
+            case 'Weight':
+            case 'BloodPressureRecord':
+              iconName = null; // 실제로는 보이지 않도록 설정
+              break;
             default:
               break;
           }
 
-          return (
+          return iconName ? (
             <Image
               source={iconName}
               style={{
@@ -47,7 +55,7 @@ const BottomTabNavigator = () => {
                 resizeMode: 'contain',
               }}
             />
-          );
+          ) : null;
         },
         tabBarActiveTintColor: theme.colors.mainBlue,
         tabBarInactiveTintColor: theme.colors.NavBar,
@@ -59,6 +67,9 @@ const BottomTabNavigator = () => {
       <Tab.Screen name="MyRoutine" component={MyRoutineScreen} options={{ tabBarLabel: '나의루틴' }} />
       <Tab.Screen name="Test" component={TestScreen} options={{ tabBarLabel: '검사하기' }} />
       <Tab.Screen name="FindHospital" component={FindHospitalScreen} options={{ tabBarLabel: '병원찾기' }} />
+      <Tab.Screen name="BloodPressure" component={BloodPressureScreen} options={{ tabBarButton: () => null }} />
+      <Tab.Screen name="Weight" component={WeightScreen} options={{ tabBarButton: () => null }} />
+      <Tab.Screen name="BloodPressureRecord" component={BloodPressureRecordScreen} options={{ tabBarButton: () => null }} />
     </Tab.Navigator>
   );
 };

@@ -28,6 +28,9 @@ const BloodPressureScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.recordButton} onPress={() => navigation.navigate('BloodPressureRecord')}>
         <Text style={styles.recordButtonText}>혈압 기록하기</Text>
       </TouchableOpacity>
+      <View style={styles.header}>
+        <Button title="닫기" onPress={() => navigation.goBack()} />
+      </View>
     </View>
   );
 };
