@@ -79,6 +79,7 @@ android {
         applicationId "com.hs"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        manifestPlaceholders = [appAuthRedirectScheme: 'com.redirectScheme.comm']
         versionCode 1
         versionName "1.0"
     }

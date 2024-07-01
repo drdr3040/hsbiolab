@@ -1,13 +1,13 @@
-import { StyleSheet ,Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import theme from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
- GrayBox: {
+ WhiteBigBox: {
     width: width * 0.2,
     height:  height* 0.05,
-    backgroundColor: theme.colors.backGray,
+    backgroundColor: theme.colors.White,
  }, 
  textInput: {
     flex: 1,
