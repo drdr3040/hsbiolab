@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: height * 0.045 * 0.5,
     backgroundColor: '#FFFFFF',
-    justifyContent: 'center',
-    alignItems: 'center',
+    //justifyContent: 'center',
+    //alignItems: 'center',
     
   },
   image: {

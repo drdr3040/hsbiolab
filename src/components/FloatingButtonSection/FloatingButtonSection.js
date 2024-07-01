@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import FloatingButton from '../atomic/FloatingButton';
 import FloatingMenu from '../menu/FloatingMenu';
 import images from '../../assets/icons/images';
+import SwitchButton from '../atomic/SwitchButton';
 
-const FloatingButtonSection = () => {
+const FloatingButton = ( {style} ) => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -12,10 +12,10 @@ const FloatingButtonSection = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, style]}>
       <View style={styles.content}>
         {menuVisible && <FloatingMenu />}
-        <FloatingButton
+        <SwitchButton
           onPress={toggleMenu}
           icon={menuVisible ? images.Xbutton : images.plusbutton}
         />
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FloatingButtonSection;
+export default FloatingButton;

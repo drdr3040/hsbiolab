@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, TouchableOpacity, Image, StyleSheet, } from 'react-native';
-import styles from '../../styles/FloatingButtonStyles';
+import styles from '../../styles/SwitchButtonStyles';
 
 
-const FloatingButton = ({ onPress, icon }) => {
+const SwitchButton = ({ onPress, icon }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
@@ -14,4 +14,4 @@ const FloatingButton = ({ onPress, icon }) => {
 };
 
 
-export default FloatingButton;
+export default SwitchButton;

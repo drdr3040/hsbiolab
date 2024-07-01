@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import SwitchButton from './src/components/atomic/SwitchButton';
-import images from './assets/icons/images';
+import SwitchButton from '../atomic/SwitchButton';
+import images from '../../assets/icons/images';
 
-const App = () => {
+const OnOffcheck = ({ style }) => {
   const [isPut, setisPut] = useState(false);
 
   const toggle = () => {
@@ -11,7 +11,7 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style= {[styles.container, style]}>
       <View style={styles.content}>
         <SwitchButton
           onPress={toggle}
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default OnOffcheck;
