@@ -1,13 +1,9 @@
 import React, {useState, useEffect} from "react";
-import { ScrollView, View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Dimensions } from 'react-native';
 import theme from '../theme';
-import images from '../../assets/icons/images';  // Assuming you have images object that contains your logo
-import LoginButton from '../components/atomic/LoginButton';
-import CustomTextInput from '../components/atomic/CustomTextInput';
-import CustomDropDownPicker from "../components/atomic/CustomDropDownPicker";
-import CustomButton from "../components/atomic/CustomButton";
+import images from '../../assets/icons/images';
+import CustomDropDownPickerBottom from "../components/atomic/CustomDropDownPickerBottom";
 import CustomButtonImage from "../components/atomic/CustomButtonImage";
-import LoginButtonStyles from "../styles/LoginButtonStyles";
 
 const { width, height } = Dimensions.get('window');
 
@@ -23,7 +19,7 @@ const MainDietScreen = ({ navigation }) => {
       ]);
 
     const handlePress = () => {
-        console.log('Button pressed!')
+        console.log('Button pressed!');
     };
 
     useEffect(() => {
@@ -32,17 +28,17 @@ const MainDietScreen = ({ navigation }) => {
 
     return (
         <ScrollView contentContainerStyle={styles.scrollcontainer}>
-            <View style = {styles.container}>
-                <Text style = {styles.maintext}>식단</Text>
-                <CustomDropDownPicker>
+            <View style={styles.container}>
+                <Text style={styles.maintext}>식단</Text>
+                <CustomDropDownPickerBottom
                     open={open}
                     value={selectedDiet}
                     items={items}
                     setOpen={setOpen}
                     setValue={setSelectedDiet}
-                    setItems={setItems}
+                    setItems={setItems} 
                     dropDownDirection="BOTTOM"
-                </CustomDropDownPicker>
+                />
                 {['탄수화물', '단백질', '지방', '나트륨', '칼륨', '인'].map((item, index) => (
                 <View key={index} style={styles.row}>
                 <Text style={styles.rowLabel}>{item}</Text>
@@ -50,48 +46,20 @@ const MainDietScreen = ({ navigation }) => {
                 </View>
                 ))}
             </View>
-            <View style = {styles.container}>
-                <Text style = {styles.maintext}>아침</Text>
-                <CustomButtonImage
-                    onPress={handlePress}
-                    imageSource={images.plusbutton}
-                    style={styles.customButtonStyle}
-                    imageStyle={styles.customButtonImageStyle}
-                />
-                <Text style = {styles.maintext}>오늘 뭐 드셨나요?</Text>
-            </View>
-            <View style = {styles.container}>
-                <Text style = {styles.maintext}>점심</Text>
-                <CustomButtonImage
-                    onPress={handlePress}
-                    imageSource={images.plusbutton}
-                    style={styles.customButtonStyle}
-                    imageStyle={styles.customButtonImageStyle}
-                />
-                <Text style = {styles.maintext}>오늘 뭐 드셨나요?</Text>
-            </View>
-            <View style = {styles.container}>
-                <Text style = {styles.maintext}>저녁</Text>
-                <CustomButtonImage
-                    onPress={handlePress}
-                    imageSource={images.plusbutton}
-                    style={styles.customButtonStyle}
-                    imageStyle={styles.customButtonImageStyle}
-                />
-                <Text style = {styles.maintext}>오늘 뭐 드셨나요?</Text>
-            </View>
-            <View style = {styles.container}>
-                <Text style = {styles.maintext}>간식</Text>
-                <CustomButtonImage
-                    onPress={handlePress}
-                    imageSource={images.plusbutton}
-                    style={styles.customButtonStyle}
-                    imageStyle={styles.customButtonImageStyle}
-                />
-                <Text style = {styles.maintext}>오늘 뭐 드셨나요?</Text>
-            </View>
+            {['아침', '점심', '저녁', '간식'].map((meal, index) => (
+                <View key={index} style={styles.container}>
+                    <Text style={styles.maintext}>{meal}</Text>
+                    <CustomButtonImage
+                        onPress={handlePress}
+                        imageSource={images.plusbutton}
+                        style={styles.customButtonStyle}
+                        imageStyle={styles.customButtonImageStyle}
+                    />
+                    <Text style={styles.maintext}>오늘 뭐 드셨나요?</Text>
+                </View>
+            ))}
         </ScrollView>
-    ) 
+    );
 };
 
 const styles = StyleSheet.create({
@@ -111,20 +79,25 @@ const styles = StyleSheet.create({
         borderRadius: width * 0.02,
         padding: width * 0.04,
         marginBottom: height * 0.02,
+        width: width * 0.8,
     },
     customButtonStyle: {
-      backgroundColor: 'blue',
-      padding: 10,
-      borderRadius: 5,
+        width: width * 0.15,
+        height: width * 0.15,
+        borderRadius: width * 0.075,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: theme.colors.mainBlue,
+        marginBottom: height * 0.01,
     },
     customButtonImageStyle: {
-      width: 30,
-      height: 30,
+        width: width * 0.08,
+        height: width * 0.08,
     },
     rowLabel: {
       fontSize: width * 0.04,
       color: theme.colors.textDarkGray,
-      },
+    },
     rowValue: {
       fontSize: width * 0.04,
       fontWeight: 'bold',
@@ -136,7 +109,7 @@ const styles = StyleSheet.create({
         paddingVertical: height * 0.01,
         borderBottomWidth: 1,
         borderBottomColor: theme.colors.MessageGray,
-      },
-  });
+    },
+});
 
-  export default MainDietScreen;
+export default MainDietScreen;
